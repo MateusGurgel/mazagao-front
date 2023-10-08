@@ -1,6 +1,7 @@
 import { Inter, Montserrat } from "next/font/google";
 import CustomLink from "@/components/customLink";
 import type { NextPageWithLayout } from "./_app";
+import VideoBackground from "@/components/videoBackground";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 const inter = Inter({ subsets: ["latin"] });
@@ -22,7 +23,7 @@ const Home: NextPageWithLayout = () => {
   }
 
   return (
-    <div className="flex justify-center items-center min-h-min-content bg-gray-700 ">
+    <VideoBackground>
       <div className="flex flex-col items-center text-center gap-6">
         <div>
           {getTitle()}
@@ -31,7 +32,7 @@ const Home: NextPageWithLayout = () => {
 
         <CustomLink href="/register">Jogue Grátis</CustomLink>
       </div>
-    </div>
+    </VideoBackground>
   );
 };
 
