@@ -12,12 +12,15 @@ const config: Config = {
       minHeight: {
         "min-content": "calc(100vh - 85px)",
       },
+      dropShadow: {
+        text: "8px 5px 0px #266613",
+      },
       colors: {
         header: "#111111",
         brand: "#43BB21",
-        background: "1D1D1D",
-        menu: "2C2C2C",
-        painel: "3E3E3E",
+        background: "#1D1D1D",
+        menu: "#2C2C2C",
+        painel: "#3E3E3E",
       },
       spacing: {
         85: "85px",
