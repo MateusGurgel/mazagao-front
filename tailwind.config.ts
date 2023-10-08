@@ -9,6 +9,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      minHeight: {
+        "min-content": "calc(100vh - 85px)",
+      },
       colors: {
         header: "#111111",
         brand: "#43BB21",
