@@ -11,8 +11,15 @@ interface inputs {
 
 const schema = yup
   .object({
-    email: yup.string().required().email(),
-    password: yup.string().required().min(6).max(64),
+    email: yup
+      .string()
+      .required("O email é obrigatório")
+      .email("email inválido"),
+    password: yup
+      .string()
+      .required("A senha é obrigatória")
+      .min(6, "Senha muito curta")
+      .max(64, "Senha grande demais"),
   })
   .required();
 
@@ -33,17 +40,16 @@ export default function Login() {
       >
         <Input
           placeHolder="E-mail"
-          type="email"
           register={register("email")}
           erroMessage={errors.email?.message}
         />
-
         <Input
           type="password"
           placeHolder="Senha"
           register={register("password")}
           erroMessage={errors.password?.message}
         />
+        {/* Show the server error message */}
         <Button className="mt-8">Login</Button>
       </form>
     </div>
