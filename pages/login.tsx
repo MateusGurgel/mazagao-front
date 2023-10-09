@@ -1,8 +1,8 @@
 import { useForm, SubmitHandler } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import Button from "@/components/button";
 import Input from "@/components/input";
 import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
 
 interface inputs {
   email: string;
@@ -36,7 +36,7 @@ export default function Login() {
     <div className="flex justify-center items-center min-h-min-content bg-background">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-6 bg-menu w-80 text-white py-16 px-10"
+        className="flex flex-col gap-6 w-80 py-16 px-10 bg-menu"
       >
         <Input
           placeHolder="E-mail"

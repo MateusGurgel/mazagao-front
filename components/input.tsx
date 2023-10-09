@@ -11,20 +11,20 @@ interface InputProps {
 
 export default function Input(props: InputProps) {
   return (
-    <div className="float-left">
+    <div className="float-left text-white">
       <input
         className={
           " bg-painel p-3 text-center outline-none border-b border-transparent transition-border duration-300 " +
           (props.erroMessage ? " border-error" : " focus:border-brand")
         }
         {...props.register}
+        placeholder={props.placeHolder}
         onFocus={(e) => (e.target.placeholder = "")}
         onBlur={(e) => {
           if (props.placeHolder) {
             e.target.placeholder = props.placeHolder;
           }
         }}
-        placeholder={props.placeHolder}
         type={props.type}
       />
       {props.erroMessage && (
