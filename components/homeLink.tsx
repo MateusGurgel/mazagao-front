@@ -1,4 +1,3 @@
-import CustomLink from "./customLink";
 import Image from "next/image";
 import Link from "next/link";
 
