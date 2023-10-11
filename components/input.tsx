@@ -10,13 +10,23 @@ interface InputProps {
 }
 
 export default function Input(props: InputProps) {
+  function getStyle() {
+    let base =
+      "bg-painel p-3 text-center outline-none border-b border-transparent transition-border duration-300";
+
+    if (props.erroMessage) {
+      base += " border-error";
+    } else {
+      base += " focus:border-brand";
+    }
+
+    return base;
+  }
+
   return (
     <div className="float-left text-white">
       <input
-        className={
-          " bg-painel p-3 text-center outline-none border-b border-transparent transition-border duration-300 " +
-          (props.erroMessage ? " border-error" : " focus:border-brand")
-        }
+        className={getStyle()}
         {...props.register}
         placeholder={props.placeHolder}
         onFocus={(e) => (e.target.placeholder = "")}
