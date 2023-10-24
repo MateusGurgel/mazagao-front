@@ -14,11 +14,7 @@ export default function Input(props: InputProps) {
     let base =
       "bg-painel p-3 text-center outline-none border-b border-transparent transition-border duration-300";
 
-    if (props.erroMessage) {
-      base += " border-error";
-    } else {
-      base += " focus:border-brand";
-    }
+    base += props.erroMessage ? " border-warning  " : " focus:border-brand ";
 
     return base;
   }
@@ -38,7 +34,7 @@ export default function Input(props: InputProps) {
         type={props.type}
       />
       {props.erroMessage && (
-        <p className="text-error text-sm">{props.erroMessage}</p>
+        <p className="text-warning text-sm">{props.erroMessage}</p>
       )}
     </div>
   );

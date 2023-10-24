@@ -10,7 +10,9 @@ export default function PlayerStatus({ player }: PlayerStatusProps) {
       <h1 className="font-medium text-3xl">{player.username}</h1>
 
       <div className="flex flex-col float-right m-0 p-0">
-        <h1 className="font-bold tracking-tighter text-9xl">{player.score}</h1>
+        <h1 className="font-bold tracking-tighter text-9xl">
+          {player.score && player.score > 999999 ? "99999+" : player.score}
+        </h1>
         <h6 className="leading-0 text-right font-light">SCORE</h6>
       </div>
 

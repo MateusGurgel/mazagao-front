@@ -22,12 +22,12 @@ const config: Config = {
         text: "8px 5px 0px #266613",
       },
       colors: {
-        header: "#111111",
-        brand: "#43BB21",
         background: "#1D1D1D",
-        menu: "#2C2C2C",
+        header: "#111111",
         painel: "#3E3E3E",
-        error: "#FF0000",
+        brand: "#43BB21",
+        warning: "#FF0000",
+        menu: "#2C2C2C",
       },
       spacing: {
         85: "85px",

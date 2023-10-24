@@ -4,7 +4,7 @@ import Scoreboard from "@/components/dashboard/scoreboard";
 export default function Dashboard() {
   const player = {
     username: "waskjobe",
-    score: 999999,
+    score: 9999999,
     kills: 20,
     deaths: 20,
     rank: "Global",
@@ -23,7 +23,6 @@ export default function Dashboard() {
       }
     >
       <PlayerStatus player={player} />
-
       <Scoreboard players={players} />
     </div>
   );
