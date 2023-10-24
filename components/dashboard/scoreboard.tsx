@@ -6,7 +6,7 @@ interface ScoreboardProps {
 
 export default function Scoreboard(props: ScoreboardProps) {
   return (
-    <div className="h-96 pt-10 p-10 w-80 overflow-auto bg-painel text-center  text-lg font-light">
+    <div className="h-96 pt-10 p-10 w-80 overflow-auto bg-menu text-center text-white text-lg font-light">
       <h1 className="mb-8">Placar</h1>
       {props.players?.map((player) => {
         return (

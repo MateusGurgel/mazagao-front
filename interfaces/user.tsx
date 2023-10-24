@@ -1,4 +1,7 @@
 interface User {
-  username: string;
-  score: number;
+  username?: string;
+  deaths?: number;
+  kills?: number;
+  rank?: string;
+  score?: number;
 }

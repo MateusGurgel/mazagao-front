@@ -9,8 +9,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      lineHeight: {
+        "0": "0",
+      },
       minHeight: {
         "min-content": "calc(100vh - 85px)",
+      },
+      minWidth: {
+        "min-panel": "115px",
       },
       dropShadow: {
         text: "8px 5px 0px #266613",
