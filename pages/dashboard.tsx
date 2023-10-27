@@ -1,20 +1,28 @@
 import PlayerStatus from "@/components/dashboard/playerStatus/playerStatus";
 import Scoreboard from "@/components/dashboard/scoreboard";
+import Spinner from "@/components/spinner";
+import useAuth from "@/hooks/useAuth";
+import mazagaoServices from "@/services/mazagaoServices";
+import { useEffect, useState } from "react";
 
 export default function Dashboard() {
-  const player = {
-    username: "waskjobe",
-    score: 9999999,
-    kills: 20,
-    deaths: 20,
-    rank: "Global",
-  };
+  useAuth();
 
-  const players = [
-    { username: "1234567891234567", score: 999999999999 },
-    { username: "waskjobe", score: 999999999999 },
-    { username: "C4lima", score: 200 },
-  ];
+  const [player, setPlayer] = useState<User | null>();
+
+  const [scoreboard, setScoreboard] = useState<User[]>();
+
+  useEffect(() => {
+    async function fetchData() {
+      setScoreboard(await mazagaoServices.getScoreboard());
+      setPlayer(await mazagaoServices.getMyProfile());
+    }
+    fetchData();
+  }, []);
+
+  if (!player) {
+    return <Spinner />;
+  }
 
   return (
     <div
@@ -23,7 +31,7 @@ export default function Dashboard() {
       }
     >
       <PlayerStatus player={player} />
-      <Scoreboard players={players} />
+      <Scoreboard players={scoreboard} />
     </div>
   );
 }
