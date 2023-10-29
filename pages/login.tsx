@@ -42,7 +42,7 @@ export default function Login() {
     if (!response) {
       setErrorMessage("Algo de errado aconteceu");
     } else if ("authenticated" in response) {
-      router.push("/");
+      router.push("/dashboard");
     } else {
       setErrorMessage(response.message);
     }
