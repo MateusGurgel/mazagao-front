@@ -3,7 +3,7 @@ import axios, { AxiosError } from "axios";
 import Cookies from "js-cookie";
 
 const api = axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL: process.env.NEXT_PUBLIC_REACT_APP_API_KEY,
   withCredentials: true,
 });
 
