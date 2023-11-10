@@ -2,8 +2,10 @@ import axios, { AxiosError } from "axios";
 
 import Cookies from "js-cookie";
 
+const apiUrl = process.env.NEXT_PUBLIC_REACT_APP_API_URL;
+
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_REACT_APP_API_KEY,
+  baseURL: apiUrl,
   withCredentials: true,
 });
 
@@ -53,6 +55,7 @@ async function login(email: string, password: string) {
       const token = response.data;
       Cookies.set(TokenKey, token.accessToken, {
         expires: new Date(token.expiration),
+        domain: apiUrl,
       });
       return response.data;
     })
