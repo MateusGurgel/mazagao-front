@@ -2,7 +2,8 @@ import axios, { AxiosError } from "axios";
 
 import Cookies from "js-cookie";
 
-const apiUrl = process.env.NEXT_PUBLIC_REACT_APP_API_URL;
+const apiUrl =
+  process.env.NEXT_PUBLIC_REACT_APP_API_URL || "http://127.0.0.1:3000";
 
 const api = axios.create({
   baseURL: apiUrl,
@@ -55,7 +56,7 @@ async function login(email: string, password: string) {
       const token = response.data;
       Cookies.set(TokenKey, token.accessToken, {
         expires: new Date(token.expiration),
-        domain: apiUrl,
+        domain: apiUrl.replace(/^https?:\/\//i, ""),
       });
       return response.data;
     })
