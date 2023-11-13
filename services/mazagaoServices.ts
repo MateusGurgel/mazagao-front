@@ -31,7 +31,9 @@ async function getScoreboard() {
 }
 
 async function logout() {
-  Cookies.remove(TokenKey);
+  Cookies.remove(TokenKey, {
+    domain: apiDomain,
+  });
 }
 
 async function getMyProfile() {
