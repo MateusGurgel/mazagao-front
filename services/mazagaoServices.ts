@@ -58,6 +58,7 @@ async function login(email: string, password: string) {
       Cookies.set(TokenKey, token.accessToken, {
         expires: new Date(token.expiration),
         domain: apiDomain,
+        sameSite: "Strict",
       });
       return response.data;
     })
