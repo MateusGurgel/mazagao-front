@@ -6,6 +6,7 @@ import * as yup from "yup";
 import mazagaoServices from "@/services/mazagaoServices";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 interface inputs {
   email: string;
@@ -49,27 +50,33 @@ export default function Login() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-min-content bg-background">
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-4 w-80 py-16 px-10 text-center bg-menu"
-      >
-        <Input
-          placeHolder="E-mail"
-          register={register("email")}
-          erroMessage={errors.email?.message}
-        />
-        <Input
-          type="password"
-          placeHolder="Senha"
-          register={register("password")}
-          erroMessage={errors.password?.message}
-        />
-        {errorMessage && (
-          <h1 className="text-warning p-0 m-0">{errorMessage}</h1>
-        )}
-        <Button className="mt-3">Login</Button>
-      </form>
-    </div>
+    <>
+      <Head>
+        <title>Login</title>
+      </Head>
+
+      <div className="flex justify-center items-center min-h-min-content bg-background">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex flex-col gap-4 w-80 py-16 px-10 text-center bg-menu"
+        >
+          <Input
+            placeHolder="E-mail"
+            register={register("email")}
+            erroMessage={errors.email?.message}
+          />
+          <Input
+            type="password"
+            placeHolder="Senha"
+            register={register("password")}
+            erroMessage={errors.password?.message}
+          />
+          {errorMessage && (
+            <h1 className="text-warning p-0 m-0">{errorMessage}</h1>
+          )}
+          <Button className="mt-3">Login</Button>
+        </form>
+      </div>
+    </>
   );
 }

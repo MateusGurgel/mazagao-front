@@ -2,6 +2,7 @@ import { Inter, Montserrat } from "next/font/google";
 import CustomLink from "@/components/customLink";
 import type { NextPageWithLayout } from "./_app";
 import VideoBackground from "@/components/videoBackground";
+import Head from "next/head";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 const inter = Inter({ subsets: ["latin"] });
@@ -23,16 +24,22 @@ const Home: NextPageWithLayout = () => {
   }
 
   return (
-    <VideoBackground>
-      <div className="flex flex-col items-center text-center gap-6">
-        <div>
-          {getTitle()}
-          {getSubtitle()}
-        </div>
+    <>
+      <Head>
+        <title>Mazagão</title>
+      </Head>
 
-        <CustomLink href="/register">Jogue Grátis</CustomLink>
-      </div>
-    </VideoBackground>
+      <VideoBackground>
+        <div className="flex flex-col items-center text-center gap-6">
+          <div>
+            {getTitle()}
+            {getSubtitle()}
+          </div>
+
+          <CustomLink href="/register">Jogue Grátis</CustomLink>
+        </div>
+      </VideoBackground>
+    </>
   );
 };
 

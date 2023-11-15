@@ -6,6 +6,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import mazagaoServices from "@/services/mazagaoServices";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Head from "next/head";
 interface inputs {
   email: string;
   username: string;
@@ -64,43 +65,49 @@ export default function Register() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-min-content bg-background">
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col w-80 gap-3 py-8 px-10 bg-menu text-center"
-      >
-        <Input
-          placeHolder="E-mail"
-          register={register("email")}
-          erroMessage={errors.email?.message}
-        />
+    <>
+      <Head>
+        <title>Register</title>
+      </Head>
 
-        <Input
-          type="username"
-          placeHolder="Username (mesmo do mine)"
-          register={register("username")}
-          erroMessage={errors.username?.message}
-        />
-        <Input
-          type="password"
-          placeHolder="Senha"
-          register={register("password")}
-          erroMessage={errors.password?.message}
-        />
+      <div className="flex justify-center items-center min-h-min-content bg-background">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex flex-col w-80 gap-3 py-8 px-10 bg-menu text-center"
+        >
+          <Input
+            placeHolder="E-mail"
+            register={register("email")}
+            erroMessage={errors.email?.message}
+          />
 
-        <Input
-          type="password"
-          placeHolder="Confirme sua senha"
-          register={register("confirmPassword")}
-          erroMessage={errors.confirmPassword?.message}
-        />
+          <Input
+            type="username"
+            placeHolder="Username (mesmo do mine)"
+            register={register("username")}
+            erroMessage={errors.username?.message}
+          />
+          <Input
+            type="password"
+            placeHolder="Senha"
+            register={register("password")}
+            erroMessage={errors.password?.message}
+          />
 
-        {errorMessage && (
-          <h1 className="text-warning p-0 m-0">{errorMessage}</h1>
-        )}
+          <Input
+            type="password"
+            placeHolder="Confirme sua senha"
+            register={register("confirmPassword")}
+            erroMessage={errors.confirmPassword?.message}
+          />
 
-        <Button className="mt-4">Register</Button>
-      </form>
-    </div>
+          {errorMessage && (
+            <h1 className="text-warning p-0 m-0">{errorMessage}</h1>
+          )}
+
+          <Button className="mt-4">Register</Button>
+        </form>
+      </div>
+    </>
   );
 }

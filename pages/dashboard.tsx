@@ -3,6 +3,7 @@ import Scoreboard from "@/components/dashboard/scoreboard";
 import Spinner from "@/components/spinner";
 import useAuth from "@/hooks/useAuth";
 import mazagaoServices from "@/services/mazagaoServices";
+import Head from "next/head";
 import { useEffect, useState } from "react";
 
 export default function Dashboard() {
@@ -25,13 +26,18 @@ export default function Dashboard() {
   }
 
   return (
-    <div
-      className={
-        "flex flex-row gap-8 justify-center items-center min-h-min-content bg-background"
-      }
-    >
-      <PlayerStatus player={player} />
-      <Scoreboard players={scoreboard} />
-    </div>
+    <>
+      <Head>
+        <title>Dashboard</title>
+      </Head>
+      <div
+        className={
+          "flex flex-row gap-8 justify-center items-center min-h-min-content bg-background"
+        }
+      >
+        <PlayerStatus player={player} />
+        <Scoreboard players={scoreboard} />
+      </div>
+    </>
   );
 }
